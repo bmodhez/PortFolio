@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavin's PortFolio</title>
+    <!-- Bootstrap 4 CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #343a40;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3 {
+            font-weight: bold;
+        }
+        hr {
+            border-top: 2px solid #007bff;
+            width: 50px;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+        }
+        .section-title {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .skills-list li {
+            margin-bottom: 5px;
+        }
+        .social-icons img {
+            width: 30px;
+            margin-right: 10px;
+            transition: transform 0.2s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Floating Button Styles */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .floating-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hide floating button by default */
+        .floating-btn-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-4">
+        <div class="row align-items-center">
+            <div class="col-md-2 text-center">
+                <img src="{% static 'images/dennisivanov.jpg' %}" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="col-md-10">
+                <h1>Bhavin Modh</h1>
+                <h4>Full-Stack Developer | Python & Django Specialist</h4>
+                <p>Email: modhbhavin05@gmail.com | Phone: +91 9322667822</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
+    <div class="container mt-4">
+        <h3 class="section-title">Professional Summary</h3>
+        <p>I am a passionate Full-Stack Developer with hands-on experience in designing and implementing scalable systems. I excel at Python, Django, and modern web technologies, with a proven track record of building user-friendly applications and solving challenging problems.</p>
+        <hr>
+    </div>
+
+
+    <div class="container mt-4">
+        <h3 class="section-title">Technical Skills</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="skills-list">
+                    <li>Programming Languages: Python, JavaScript, HTML5, CSS3</li>
+                    <li>Frameworks: Django</li>
+                    <li>Databases: SQL, MYSQL</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="skills-list">
+                    <li>APIs: RESTful APIs, Google Maps API</li>
+                    <li>Cloud: AWS (EC2, S3)</li>
+                    <li>Tools: Git, Docker, Postman</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <!-- Education -->
+    <div class="container mt-4">
+        <h3 class="section-title">Education</h3>
+        <p><strong>Bachelor of Science in Computer Science</strong></p>
+        <p>CVM University | 2026</p>
+        <hr>
+    </div>
+
+    {% if messages %}
+        <div class="container mt-4">
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <a href="{% url 'resume' %}" class="floating-btn">
+            <span>⬆️</span>
+        </a>
+    {% endif %}
+
+    <footer>
+        <p>Connect with me</p>
+        <div class="social-icons">
+            <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+            <a href="#"><img src="{% static 'images/linkedin.png' %}" alt="LinkedIn"></a>
+            <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'images/youtube.png' %}" alt="YouTube"></a>
+        </div>
+    
+        <p><a href="{% url 'contact' %}" class="btn btn-outline-light mt-2">Contact Me</a></p>
+    </footer>
+</body>
+</html>
